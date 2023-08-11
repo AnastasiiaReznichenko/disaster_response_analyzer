@@ -5,7 +5,7 @@
 
 # Summary of the project
 
-The aim of this project is to build a model that based on the input message can precisely analyze what disaster category it belongs to.
+The project's core mission is to create an advanced model that accurately categorizes incoming messages into specific disaster types. By achieving this, we can rapidly connect each message to the right relief agency, enabling quicker and more precise disaster response efforts. This time-saving process is vital in emergency situations where swift action can make a life-saving difference.
 
 We trained our model on message input and 36 response categories. We used  MultiOutputClassifier() for multi-target classification and RandomForestClassifier()  as a base estimator.
 
