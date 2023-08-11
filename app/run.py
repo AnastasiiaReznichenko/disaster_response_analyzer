@@ -42,25 +42,46 @@ def index():
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
     column_sum = df.iloc[:, 4:].sum()
-    df_1 = pd.DataFrame(column_sum).reset_index()
+    df_1 = pd.DataFrame(column_sum, columns=['freq']).reset_index().sort_values(by='freq', ascending=False)
+
     df_1.columns = ['Categories', 'Value']
     genre_counts = df_1['Categories'].head(4)
     genre_names = df_1['Value'].head(4)
+    counts = df_1['Categories'].tail(4)
+    names = df_1['Value'].tail(4)
 
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
+
     graphs = [
         {
             'data': [
                 Bar(
                     y=genre_names,
                     x=genre_counts,
-
                 )
             ],
 
             'layout': {
-                'title': ' Five most frequent Categories',
+                'title': 'Most frequent Categories ',
+                'yaxis': {
+                    'title': "Frequency"
+                },
+                'xaxis': {
+                    'title': "Categories"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    y=names,
+                    x=counts,
+                )
+            ],
+
+            'layout': {
+                'title': 'Least frequent Categories ',
                 'yaxis': {
                     'title': "Frequency"
                 },
